@@ -1,0 +1,21 @@
+def heap(a,n):
+    n1=n//2-1
+    for i in range(n1,-1,-1):
+        heapify(a,i,n)
+    print(a)    
+def heapify(a,i,n):
+    l=i 
+    left=2*i+1
+    right=2*i+2 
+    if(left<n and a[l]<a[left]):
+        l=left 
+    if(right<n and a[l]<a[right]):
+        l=right
+    if(i!=l):
+        a[i],a[l]=a[l],a[i]
+        heapify(a,l,n)
+a=[1,2,3,4,5,6,7,8]
+n=len(a)
+heap(a,n)
+
+print(a)
