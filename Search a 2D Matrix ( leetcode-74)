@@ -1,0 +1,43 @@
+class Solution:
+    
+    def bSearch(self,a,target):
+        
+        print("hello fun")
+        
+        low=0
+        high=len(a)-1 
+        
+        while(low<=high):
+            
+            mid=low+(high-low)//2 
+            
+            if(a[mid]==target):
+                return 1 
+            
+            if(a[mid]<target):
+                
+                low=mid+1 
+            else:
+                high=mid-1
+                
+                
+        return -1    
+    
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        
+        rows=len(matrix)
+        col=len(matrix[0])
+        res=-1
+        
+        for a in matrix:
+            
+            if(a[0]<=target<=a[-1]):
+                
+                res=self.bSearch(a,target)
+        if(res!=-1):
+            return True 
+        return False
+        
+        
+        
